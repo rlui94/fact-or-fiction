@@ -1,14 +1,24 @@
-# Fact or Fiction
-PSU CS565 Fullstack Project
+# fact-or-fiction
 
-## Installation
-Install Node.js on your machine.
+## Project setup
+```
+npm install
+```
 
-Install packages.
-> npm install
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-Install nodemon.
-> npm install -g nodemon
+### Compiles and minifies for production
+```
+npm run build
+```
 
-Start server.
-> nodemon index.js
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
