@@ -14,16 +14,33 @@
         </tr>
       </tbody>
     </table>
+    <ul v-for="country in countries" :key="country.name">
+      <li>{{ country.name }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'employee-table',
-    props: {
-        employees: Array,
-    },
+import CountriesApi from '@/api/Countries'
+export default {
+  name: 'employee-table',
+  props: {
+      employees: Array,
+  },
+
+  data(){
+    return{
+      countries: [],
+    }
+  },
+
+  created(){
+    CountriesApi.getCountries()
+      .then(countries =>{
+        this.countries = countries
+      })
   }
+}
 </script>
 
 <style scoped></style>
