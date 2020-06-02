@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <h1>Latest Articles</h1>
-
+    <latest-articles />
     <h1>Employees</h1>
     <employee-table :employees="employees" />
-    <latest-articles />
+    
   </div>
 </template>
 

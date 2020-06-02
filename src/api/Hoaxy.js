@@ -4,22 +4,12 @@ const x_rapidapi_host = "api-hoaxy.p.rapidapi.com";
 const proxyurl="https://cors-anywhere.herokuapp.com/"
 
 export default {
+    /* returns
+    {articles:{}
+    num_of_entries:num
+    status: str}
+    */
     getLatestArticles(past_hours){
-    //     fetch("https://api-hoaxy.p.rapidapi.com/latest-articles?past_hours=2", {
-    //         "method": "GET",
-    //         "headers": {
-    //             "x-rapidapi-host": "api-hoaxy.p.rapidapi.com",
-    //             "x-rapidapi-key": process.env.VUE_APP_RAPIDAPI_KEY,
-    //         }
-    // })
-    // .then(response => {
-    //     console.log(response);
-    //     console.log(response.data);
-    //     return response.data;
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    // });
         return axios.get(
             proxyurl + url +  "latest-articles?past_hours=" + past_hours,
             {
@@ -31,7 +21,7 @@ export default {
             .then(response=>{
                 console.log('Request successful', response);
                 console.log('Data', response.data);
-                return response.data;
+                return response.data.articles;
             })
             .catch(error =>{
                 console.log('Request failed', error);
