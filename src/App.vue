@@ -1,17 +1,22 @@
 <template>
   <div id="app">
+    <h1>Latest Articles</h1>
+
     <h1>Employees</h1>
     <employee-table :employees="employees" />
+    <latest-articles />
   </div>
 </template>
 
 <script>
 import EmployeeTable from '@/components/EmployeeTable.vue'
+import LatestArticles from '@/components/LatestArticles.vue'
 
 export default {
   name: 'App',
   components: {
     EmployeeTable,
+    LatestArticles,
   },
   data() {
     return {
