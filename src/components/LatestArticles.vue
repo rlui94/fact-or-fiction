@@ -1,7 +1,11 @@
 <template>
   <div id="latest-articles">
     <ul v-for="art in articles" :key="art.id">
-      <li>{{ art }}</li>
+        <li>
+            <h5>{{ art.title }}</h5>
+            <h6>Domain: {{ art.domain }}</h6>
+            <p>Site Tags: <span v-for="tag in art.site_tags" :key="tag.name">{{ tag.name }} </span></p>
+        </li>
     </ul>
   </div>
 </template>
