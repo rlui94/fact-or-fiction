@@ -1,6 +1,5 @@
 <template>
   <div id="employee-table">
-    <h1>{{ process.env.VUE_APP_HOST }}</h1>
     <table>
       <thead>
         <tr>
