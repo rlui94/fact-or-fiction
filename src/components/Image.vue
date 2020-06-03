@@ -7,6 +7,7 @@
 
 <script>
 import UrlMeta from '@/api/UrlMeta'
+const img_not_found = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
 
 export default {
   name: 'image-component',
@@ -16,7 +17,7 @@ export default {
 
   data(){
       return{
-      link: "",
+      link: img_not_found,
     }
   },
 
