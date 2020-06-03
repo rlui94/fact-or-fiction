@@ -1,7 +1,7 @@
 <template>
 <!-- https://stackoverflow.com/questions/50659676/how-to-load-image-src-url-in-vuejs-asyncronously -->
   <div id="image-component">
-    <img :src="link">
+    <b-img :src="link" fluid></b-img>
   </div>
 </template>
 
