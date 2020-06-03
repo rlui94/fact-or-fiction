@@ -16,7 +16,7 @@ export default{
         )
         .then(response=>{
             console.log('URL Meta request successful', response);
-            return response.data.meta;
+            return response.data;
         })
         .catch(error =>{
             console.log('Request failed', error);
