@@ -28,7 +28,9 @@ export default {
   methods:{
       async getLink(){
           let data = await UrlMeta.getUrlMeta(this.url);
-          this.link = data.meta.image;
+          if(data.result.status === "OK"){
+              this.link = data.meta.image;
+          }
       }
   }
 }
