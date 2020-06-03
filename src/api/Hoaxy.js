@@ -19,7 +19,7 @@ export default {
                 }
             })
             .then(response=>{
-                console.log('Request successful', response);
+                console.log('Hoaxy request successful', response);
                 console.log('Data', response.data);
                 return response.data.articles;
             })
