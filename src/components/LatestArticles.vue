@@ -9,7 +9,7 @@
                 <b-card-body>
                     <b-link :to="art.canonical_url">
                         <h4>{{art.title}}</h4>
-                        <image-component :url="art.canonical_url"/>
+                        <image-thumbnail :url="art.canonical_url"/>
                     </b-link>
                 </b-card-body>
                 
@@ -26,14 +26,14 @@
 
 <script>
 import HoaxyAPI from '@/api/Hoaxy'
-import ImageComponent from '@/components/Image'
+import ImageThumbnail from '@/components/ImageThumbnail'
 
-const maxArticles = 2;
+const maxArticles = 0;
 
 export default {
   name: 'latest-articles',
   components: {
-      ImageComponent,
+      ImageThumbnail,
   },
 
   data(){
