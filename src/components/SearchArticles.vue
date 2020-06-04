@@ -28,6 +28,12 @@
                     <h6 class="card-text">Site Type: {{ art.site_type }}</h6>
                 </b-col>
             </b-row>
+            <b-row>
+                <b-col>
+                <b-button @click.stop.prevent="prevBatch" variant="secondary">Previous</b-button>
+                <b-button @click.stop.prevent="nextBatch" variant="secondary">Next</b-button>
+                </b-col>
+            </b-row>
         </b-container>
     </b-container>
 </template>
@@ -60,15 +66,19 @@ export default {
         },
 
         nextBatch(){
-            let curr = this.index;
-            this.index = this.index + maxArticles;
-            this.shownArticles = this.articles.slice(curr, this.index);
+            if(this.index < this.articles.length && this.index + maxArticles <= this.articles.length){
+                let curr = this.index;
+                this.index = this.index + maxArticles;
+                this.shownArticles = this.articles.slice(curr, this.index);
+            }
         },
 
         prevBatch(){
-            let curr = this.index;
-            this.index = this.index - maxArticles;
-            this.shownArticles = this.articles.slice(this.index, curr);
+            if(this.index > 0 && this.index - maxArticles >= 0){
+                let curr = this.index;
+                this.index = this.index - maxArticles;
+                this.shownArticles = this.articles.slice(this.index, curr);
+            }
         },
     }
 }
