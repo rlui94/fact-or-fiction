@@ -1,6 +1,6 @@
 <template>
   <b-container id="latest-articles">
-    <b-row><h1>Latest Articles of the Past {{ hours }} Hours</h1></b-row>
+    <b-row><b-col><h1>Latest Articles of the Past {{ hours }} Hours</h1></b-col></b-row>
     <b-row>
       <b-col sm="auto" v-for="art in articles" :key="art.id">
           <b-card no-body
@@ -15,7 +15,7 @@
               </b-card-body>
               
               <b-card-text>
-                  <h6>Domain: {{ art.domain }}</h6>
+                  <h6>Domain: <a :href="domainToUrl(art.domain)">{{ art.domain }}</a></h6>
                   <p v-if="art.site_tags === null">Site Tags: none</p>
                   <p v-else>Site Tags: <span v-for="tag in art.site_tags" :key="tag.name">{{ tag.name }} </span></p>
               </b-card-text>
@@ -53,7 +53,11 @@ export default {
       });
   },
 
-  methods:{},
+  methods:{
+    domainToUrl(domain){
+      return "https://"+domain;
+    }
+  },
 }
 </script>
 

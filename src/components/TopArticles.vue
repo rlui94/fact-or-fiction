@@ -1,6 +1,6 @@
 <template>
   <b-container id="top-articles">
-    <b-row><h1>Top Articles of the Past Month</h1></b-row>
+    <b-row><b-col><h1>Top Articles of the Past Month</h1></b-col></b-row>
     <b-row>
       <b-col sm="auto" v-for="art in articles" :key="art.id">
           <b-card no-body

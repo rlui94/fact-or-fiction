@@ -1,10 +1,10 @@
 <template>
   <b-container id="app">
     <b-row>
-      <latest-articles />
+      <top-articles />
     </b-row>
     <b-row>
-      <top-articles />
+      <latest-articles />
     </b-row>
     
   </b-container>
