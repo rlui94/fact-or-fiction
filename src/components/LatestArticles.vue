@@ -9,7 +9,7 @@
           >    
               <b-card-body>
                   <b-link :to="art.canonical_url">
-                      <h4>{{art.title}}</h4>
+                      <h5>{{art.title}}</h5>
                       <image-thumbnail :url="art.canonical_url"/>
                   </b-link>
               </b-card-body>

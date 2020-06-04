@@ -20,14 +20,14 @@
             </b-form>
         </b-col></b-row>
         <b-container id="results" v-if="showResults" >
-            <b-row v-for="art in shownArticles" :key="art.id">
+            <b-row v-for="art in shownArticles" :key="art.id" class="w-75 mx-auto">
                 <b-col class="card pb-2 pt-2 text-dark">
-                    <a :href="art.canonical_url"><h5 class="card-title">{{ art.title }}</h5></a>
-                    <h6 class="card-text">Site Score: {{ art.score }}</h6>
-                    <h6 class="card-text">Site Type: {{ art.site_type }}</h6>
+                    <a :href="art.canonical_url"><h6 class="card-title">{{ art.title }}</h6></a>
+                    <span class="card-text">Site Score: {{ art.score }} </span>
+                    <p class="card-text">Site Type: {{ art.site_type }}</p>
                 </b-col>
             </b-row>
-            <b-row>
+            <b-row class="pt-2">
                 <b-col>
                 <b-button @click.stop.prevent="prevBatch" variant="secondary">Previous</b-button>
                 <b-button @click.stop.prevent="nextBatch" variant="secondary">Next</b-button>
@@ -39,7 +39,7 @@
 
 <script>
 import HoaxyAPI from '@/api/Hoaxy'
-const maxArticles = 6
+const maxArticles = 8
 
 export default {
     name: "search-articles",
