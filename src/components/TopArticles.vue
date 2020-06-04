@@ -18,7 +18,7 @@
                   <h6>Date Captured: {{ truncateDate(art.date_captured) }}</h6>
                   <h6># of Tweets: {{ formatNum(art.number_of_tweets) }}</h6>
                   <p v-if="art.site_type === null">Site Type: none</p>
-                  <p v-else>Site Type: {{ art.site_type }} </p>
+                  <p v-else>Site Type: {{ displaySiteType(art.site_type) }} </p>
               </b-card-text>
           </b-card>
       </b-col>
@@ -58,6 +58,16 @@ export default {
 
     formatNum(num){
       return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    },
+
+    displaySiteType(type){
+      if(type === "claim"){
+          return "Low Credibility";
+      }
+      else if(type === "fact_checking"){
+          return "Fact Checking"
+      }
+      else {return "None"}
     },
   },
 }

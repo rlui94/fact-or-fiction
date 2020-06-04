@@ -1,6 +1,8 @@
 <template>
     <b-container class="bg-dark text-light rounded p-3">
-        <b-row><b-col><h4>Heard about something you're unsure about? Found out more!</h4></b-col></b-row>
+        <b-row><b-col><h4>Heard about something interesting? Find out more!</h4></b-col></b-row>
+        <b-row ><b-col><p class="w-50 mx-auto">Articles are categorized as either (1) low-credibility sources according to reputable news organizations or (2) independent fact-checking organizations.
+            More information at <a href="hoaxy.iuni.iu.edu/faq.php">Hoaxy.</a></p></b-col></b-row>
         <b-row class="mb-5"><b-col>
             <b-form @submit="onSubmit">
                 <label class="sr-only" for="search-input">Search Terms:</label>
@@ -24,10 +26,11 @@
             <b-row v-for="art in shownArticles" :key="art.id" class="w-75 mx-auto">
                 <b-col class="card pb-2 pt-2 text-dark">
                     <a :href="art.canonical_url"><h6 class="card-title">{{ art.title }}</h6></a>
-                    <span class="card-text">Site Score: {{ art.score }} </span>
-                    <p class="card-text">Site Type: {{ art.site_type }}</p>
+                    <span class="card-text">Site Score: {{ truncateScore(art.score) }} </span>
+                    <p class="card-text">Site Type: {{ displaySiteType(art.site_type) }}</p>
                 </b-col>
             </b-row>
+            <b-row><b-col><p>Page {{ page }}</p></b-col></b-row>
             <b-row class="pt-2">
                 <b-col>
                 <b-button @click.stop.prevent="prevBatch" variant="secondary">Previous</b-button>
@@ -55,6 +58,7 @@ export default {
         articles: [],
         shownArticles: [],
         index:0,
+        page:1,
       }
     },
 
@@ -72,6 +76,7 @@ export default {
             if(this.index < this.articles.length && this.index + maxArticles <= this.articles.length){
                 let curr = this.index;
                 this.index = this.index + maxArticles;
+                this.page = this.index/maxArticles + 1;
                 this.shownArticles = this.articles.slice(curr, this.index);
             }
         },
@@ -80,9 +85,24 @@ export default {
             if(this.index > 0 && this.index - maxArticles >= 0){
                 let curr = this.index;
                 this.index = this.index - maxArticles;
+                this.page = this.index/maxArticles + 1;
                 this.shownArticles = this.articles.slice(this.index, curr);
             }
         },
+
+        displaySiteType(type){
+            if(type === "claim"){
+                return "Low Credibility";
+            }
+            else if(type === "fact_checking"){
+                return "Fact Checking"
+            }
+            else {return "None"}
+        },
+
+        truncateScore(score){
+            return Math.round(score * 100) / 100;
+        }
     }
 }
 </script>
