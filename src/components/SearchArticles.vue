@@ -26,7 +26,7 @@
             <b-row v-for="art in shownArticles" :key="art.id" class="w-75 mx-auto">
                 <b-col class="card pb-2 pt-2 text-dark">
                     <a :href="art.canonical_url"><h6 class="card-title">{{ art.title }}</h6></a>
-                    <span class="card-text">Site Score: {{ truncateScore(art.score) }} </span>
+                    <span class="card-text">Traction Score: {{ truncateScore(art.score) }} </span>
                     <p class="card-text">Site Type: {{ displaySiteType(art.site_type) }}</p>
                 </b-col>
             </b-row>
