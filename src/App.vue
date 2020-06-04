@@ -1,11 +1,14 @@
 <template>
-  <b-container id="app">
+  <b-container id="app" class="mb-5">
     <b-row><b-col><h1>Fact or Fiction?</h1></b-col></b-row>
     <b-row>
-      <b-col><top-articles /></b-col>
+      <b-col><top-articles class="mb-5" /></b-col>
     </b-row>
     <b-row>
-      <b-col><latest-articles /></b-col>
+      <b-col><latest-articles class="mb-5"/></b-col>
+    </b-row>
+    <b-row>
+      <b-col><search-articles class="mb-5"/></b-col>
     </b-row>
     
   </b-container>
@@ -14,12 +17,14 @@
 <script>
 import LatestArticles from '@/components/LatestArticles.vue'
 import TopArticles from '@/components/TopArticles.vue'
+import SearchArticles from '@/components/SearchArticles.vue'
 
 export default {
   name: 'App',
   components: {
     LatestArticles,
     TopArticles,
+    SearchArticles,
   },
   data() {
     return {
