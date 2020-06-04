@@ -19,12 +19,34 @@ export default {
                 }
             })
             .then(response=>{
-                console.log('Hoaxy request successful', response);
+                console.log('Hoaxy latest request successful', response);
                 console.log('Data', response.data);
                 return response.data.articles;
             })
             .catch(error =>{
                 console.log('Request failed', error);
             })
-    }
+    },
+
+    getTopArticles(){
+        return axios.get(
+            proxyurl + url +  "top-articles",
+            {
+                headers: {
+                    "x-rapidapi-host": x_rapidapi_host,
+                    "x-rapidapi-key": process.env.VUE_APP_RAPIDAPI_KEY,
+                },
+                query:{
+                    "most_recent":"true",
+                }
+            })
+            .then(response=>{
+                console.log('Hoaxy top request successful', response);
+                console.log('Data', response.data);
+                return response.data.articles;
+            })
+            .catch(error =>{
+                console.log('Request failed', error);
+            })
+    },
 }
