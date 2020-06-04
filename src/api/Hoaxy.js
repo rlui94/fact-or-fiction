@@ -59,11 +59,11 @@ export default {
                     "x-rapidapi-key": process.env.VUE_APP_RAPIDAPI_KEY,
                     "useQueryString": true,
                 },
-                query:{
+                params:{
                     "sort_by":"relevant",
                     "use_lucene_syntax":"true",
                     "query": query_str,
-                }
+                },
             })
             .then(response=>{
                 console.log('Hoaxy article request successful', response);
