@@ -19,6 +19,7 @@
                 <b-button type="submit" variant="primary">Search</b-button>
             </b-form>
         </b-col></b-row>
+        <b-container id="results-loading" v-if="loading"><p>Loading...</p></b-container>
         <b-container id="results" v-if="showResults" >
             <b-row v-for="art in shownArticles" :key="art.id" class="w-75 mx-auto">
                 <b-col class="card pb-2 pt-2 text-dark">
@@ -47,6 +48,7 @@ export default {
     data() {
       return {
         showResults: false,
+        loading: false,
         form: {
           query:"",
         },
@@ -59,8 +61,10 @@ export default {
     methods: {
         async onSubmit(evt) {
             evt.preventDefault();
+            this.loading = true;
             this.articles = await HoaxyAPI.searchArticles(this.form.query);
             this.shownArticles = this.articles.slice(0, maxArticles);
+            this.loading = false;
             this.showResults = true;
         },
 

@@ -7,6 +7,7 @@
 
 <script>
 import UrlMeta from '@/api/UrlMeta'
+const loading_img = 'https://www.publicdomainpictures.net/pictures/260000/velka/loading-symbol.jpg'
 const img_not_found = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
 const no_api_call = true;
 const alt_string = "Image of ";
@@ -19,7 +20,7 @@ export default {
 
   data(){
       return{
-      link: img_not_found,
+      link: loading_img,
       alt_string: alt_string,
     }
   },
