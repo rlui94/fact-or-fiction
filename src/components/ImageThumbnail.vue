@@ -8,6 +8,7 @@
 <script>
 import UrlMeta from '@/api/UrlMeta'
 const img_not_found = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
+const no_api_call = true;
 
 export default {
   name: 'image-thumbnail',
@@ -27,9 +28,14 @@ export default {
 
   methods:{
       async getLink(){
-          let data = await UrlMeta.getUrlMeta(this.url);
-          if(data.result.status === "OK" && typeof data.meta.image != "undefined"){
-              this.link = data.meta.image;
+          if(no_api_call){
+            this.link = img_not_found;
+          }
+          else{
+            let data = await UrlMeta.getUrlMeta(this.url);
+            if(data.result.status === "OK" && typeof data.meta.image != "undefined"){
+                this.link = data.meta.image;
+            }
           }
       }
   }
