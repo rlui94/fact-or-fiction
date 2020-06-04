@@ -1,8 +1,7 @@
 <template>
-  <b-container id="latest-articles">
-    <b-row><b-col><h2>Latest Articles</h2></b-col></b-row>
-    <b-row><b-col><h4>Of the past {{hours}} hours:</h4></b-col></b-row>
-    <b-row>
+  <b-container id="latest-articles" class="bg-dark text-light rounded">
+    <b-row><b-col><h2>Latest Articles</h2><h4>Of the past {{hours}} hours:</h4></b-col></b-row>
+    <b-row class="mx-auto">
       <b-col sm="auto" v-for="art in articles" :key="art.id">
           <b-card no-body
               style="max-width: 20rem;"
@@ -15,7 +14,7 @@
                   </b-link>
               </b-card-body>
               
-              <b-card-text>
+              <b-card-text class="text-dark">
                   <h6>Domain: <a :href="domainToUrl(art.domain)">{{ art.domain }}</a></h6>
                   <p v-if="art.site_tags === null">Site Tags: none</p>
                   <p v-else>Site Tags: <span v-for="tag in art.site_tags" :key="tag.name">{{ tag.name }} </span></p>

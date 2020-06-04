@@ -1,7 +1,6 @@
 <template>
-    <b-container>
-        <b-row><b-col><h2>Article Search</h2></b-col></b-row>
-        <b-row><b-col><h4>Heard about something you're unsure of? Research it here!</h4></b-col></b-row>
+    <b-container class="bg-dark text-light rounded p-3">
+        <b-row><b-col><h2>Article Search</h2><h4>Heard about something you're unsure of? Found out more!</h4></b-col></b-row>
         <b-row class="mb-5"><b-col>
             <b-form @submit="onSubmit">
                 <label class="sr-only" for="search-input">Search Terms:</label>
@@ -22,7 +21,7 @@
         </b-col></b-row>
         <b-container id="results" v-if="showResults" >
             <b-row v-for="art in shownArticles" :key="art.id">
-                <b-col class="card pb-2 pt-2">
+                <b-col class="card pb-2 pt-2 text-dark">
                     <a :href="art.canonical_url"><h5 class="card-title">{{ art.title }}</h5></a>
                     <h6 class="card-text">Site Score: {{ art.score }}</h6>
                     <h6 class="card-text">Site Type: {{ art.site_type }}</h6>
@@ -40,7 +39,7 @@
 
 <script>
 import HoaxyAPI from '@/api/Hoaxy'
-const maxArticles = 5
+const maxArticles = 6
 
 export default {
     name: "search-articles",

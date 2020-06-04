@@ -1,12 +1,11 @@
 <template>
-  <b-container id="top-articles">
-    <b-row><b-col><h2>Top Articles</h2></b-col></b-row>
-    <b-row><b-col><h4>Of the past month:</h4></b-col></b-row>
-    <b-row>
+  <b-container id="top-articles" class="bg-dark text-light rounded">
+    <b-row><b-col><h2>Top Articles</h2><h4>Of the past month:</h4></b-col></b-row>
+    <b-row class="mx-auto">
       <b-col sm="auto" v-for="art in articles" :key="art.id">
           <b-card no-body
               style="max-width: 20rem;"
-              class="mb-2 b-col"
+              class="mb-2"
           >    
               <b-card-body>
                   <b-link :to="art.canonical_url">
@@ -15,7 +14,7 @@
                   </b-link>
               </b-card-body>
               
-              <b-card-text>
+              <b-card-text class="text-dark">
                   <h6>Date Captured: {{ truncateDate(art.date_captured) }}</h6>
                   <h6># of Tweets: {{ formatNum(art.number_of_tweets) }}</h6>
                   <p v-if="art.site_type === null">Site Type: none</p>
@@ -31,7 +30,7 @@
 import HoaxyAPI from '@/api/Hoaxy'
 import ImageThumbnail from '@/components/ImageThumbnail'
 
-const maxArticles = 3;
+const maxArticles = 6;
 
 export default {
   name: 'top-articles',
