@@ -1,7 +1,7 @@
 <template>
 <!-- https://stackoverflow.com/questions/50659676/how-to-load-image-src-url-in-vuejs-asyncronously -->
   <div id="image-thumbnail">
-    <b-img :src="link" fluid></b-img>
+    <b-img :src="link" :alt="link" fluid></b-img>
   </div>
 </template>
 
@@ -9,6 +9,7 @@
 import UrlMeta from '@/api/UrlMeta'
 const img_not_found = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
 const no_api_call = true;
+const alt_string = "Image of ";
 
 export default {
   name: 'image-thumbnail',
@@ -19,6 +20,7 @@ export default {
   data(){
       return{
       link: img_not_found,
+      alt_string: alt_string,
     }
   },
 
@@ -37,6 +39,7 @@ export default {
                 this.link = data.meta.image;
             }
           }
+          this.alt_string = alt_string + this.link;
       }
   }
 }
