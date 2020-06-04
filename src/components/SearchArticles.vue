@@ -1,6 +1,6 @@
 <template>
     <b-container class="bg-dark text-light rounded p-3">
-        <b-row><b-col><h2>Article Search</h2><h4>Heard about something you're unsure of? Found out more!</h4></b-col></b-row>
+        <b-row><b-col><h4>Heard about something you're unsure about? Found out more!</h4></b-col></b-row>
         <b-row class="mb-5"><b-col>
             <b-form @submit="onSubmit">
                 <label class="sr-only" for="search-input">Search Terms:</label>

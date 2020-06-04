@@ -8,7 +8,12 @@
         <b-col><latest-articles class="mb-5"/></b-col>
       </b-row>
       <b-row>
-        <b-col><search-articles class="mb-5"/></b-col>
+        <b-col v-if="searchSelected" class="mx-auto"><b-button class="bg-info">Article Search</b-button><b-button @click.stop.prevent="formSwitch" >Bot Checker</b-button></b-col>
+        <b-col v-else class="mx-auto"><b-button @click.stop.prevent="formSwitch">Article Search</b-button><b-button  class="bg-info">Bot Checker</b-button></b-col>
+      </b-row>
+      <b-row>
+        <b-col v-if="searchSelected"><search-articles class="mb-5"/></b-col>
+        <b-col v-else><bot-checker class="mb-5"/></b-col>
       </b-row>
     </b-container>
 </template>
@@ -17,6 +22,7 @@
 import LatestArticles from '@/components/LatestArticles.vue'
 import TopArticles from '@/components/TopArticles.vue'
 import SearchArticles from '@/components/SearchArticles.vue'
+import BotChecker from '@/components/BotChecker.vue'
 
 export default {
   name: 'App',
@@ -24,11 +30,22 @@ export default {
     LatestArticles,
     TopArticles,
     SearchArticles,
+    BotChecker,
   },
   data() {
     return {
+      searchSelected: true,
     }
   },
+
+  methods:{
+    formSwitch(){
+      if(this.searchSelected){
+        this.searchSelected = false;
+      }
+      else{this.searchSelected = true;}
+    }
+  }
 }
 </script>
 
