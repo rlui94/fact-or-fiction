@@ -1,6 +1,6 @@
 <template>
   <b-container id="latest-articles">
-    <b-row><b-col><h1>Latest Articles of the Past {{ hours }} Hours</h1></b-col></b-row>
+    <b-row><b-col><h2>Latest Articles of the Past {{ hours }} Hours</h2></b-col></b-row>
     <b-row>
       <b-col sm="auto" v-for="art in articles" :key="art.id">
           <b-card no-body

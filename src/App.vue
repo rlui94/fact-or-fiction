@@ -1,10 +1,11 @@
 <template>
   <b-container id="app">
+    <b-row><b-col><h1>Fact or Fiction?</h1></b-col></b-row>
     <b-row>
-      <top-articles />
+      <b-col><top-articles /></b-col>
     </b-row>
     <b-row>
-      <latest-articles />
+      <b-col><latest-articles /></b-col>
     </b-row>
     
   </b-container>
