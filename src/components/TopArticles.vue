@@ -15,9 +15,10 @@
               </b-card-body>
               
               <b-card-text>
-                  <h6>Domain: {{ art.domain }}</h6>
-                  <p v-if="art.site_tags === null">Site Tags: None</p>
-                  <p v-else>Site Tags: <span v-for="tag in art.site_tags" :key="tag.name">{{ tag.name }} </span></p>
+                  <h6>Date Captured: {{ truncateDate(art.date_captured) }}</h6>
+                  <h6># of Tweets: {{ formatNum(art.number_of_tweets) }}</h6>
+                  <p v-if="art.site_type === null">Site Type: none</p>
+                  <p v-else>Site Type: {{ art.site_type }} </p>
               </b-card-text>
           </b-card>
       </b-col>
@@ -50,7 +51,15 @@ export default {
       });
   },
 
-  methods:{},
+  methods:{
+    truncateDate(date_string){
+      return date_string.slice(0,10);
+    },
+
+    formatNum(num){
+      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    },
+  },
 }
 </script>
 

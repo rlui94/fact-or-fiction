@@ -16,7 +16,7 @@
               
               <b-card-text>
                   <h6>Domain: {{ art.domain }}</h6>
-                  <p v-if="art.site_tags === null">Site Tags: None</p>
+                  <p v-if="art.site_tags === null">Site Tags: none</p>
                   <p v-else>Site Tags: <span v-for="tag in art.site_tags" :key="tag.name">{{ tag.name }} </span></p>
               </b-card-text>
           </b-card>
