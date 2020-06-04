@@ -1,7 +1,7 @@
 import axios from 'axios'
 const url = 'https://api-hoaxy.p.rapidapi.com/';
 const x_rapidapi_host = "api-hoaxy.p.rapidapi.com";
-const proxyurl="https://cors-anywhere.herokuapp.com/"
+const proxyurl="https://cors-anywhere.herokuapp.com/";
 
 export default {
     /* returns
