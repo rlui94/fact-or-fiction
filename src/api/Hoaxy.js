@@ -2,7 +2,7 @@ import axios from 'axios';
 const url = 'https://api-hoaxy.p.rapidapi.com/';
 const x_rapidapi_host = "api-hoaxy.p.rapidapi.com";
 const proxyurl="https://cors-anywhere.herokuapp.com/";
-const useProxy = false;
+const useProxy = true;
 
 export default {
     /* returns
@@ -35,7 +35,7 @@ export default {
     getTopArticles(){
         let api_url = "";
         if(useProxy){ api_url = proxyurl + url + "top-articles"}
-        else{api_url = proxyurl + url + "top-articles"}
+        else{api_url = url + "top-articles"}
         return axios.get(
             api_url,
             {
@@ -60,7 +60,7 @@ export default {
     searchArticles(query_str){
         let api_url = "";
         if(useProxy){ api_url = proxyurl + url + "articles"}
-        else{api_url = proxyurl + url + "articles"}
+        else{api_url = url + "articles"}
         return axios.get(
             api_url,
             {
