@@ -2,6 +2,7 @@ import axios from 'axios';
 const url = 'https://api-hoaxy.p.rapidapi.com/';
 const x_rapidapi_host = "api-hoaxy.p.rapidapi.com";
 const proxyurl="https://cors-anywhere.herokuapp.com/";
+const useProxy = false;
 
 export default {
     /* returns
@@ -10,8 +11,11 @@ export default {
     status: str}
     */
     getLatestArticles(past_hours){
+        let api_url = "";
+        if(useProxy){ api_url = proxyurl + url + "latest-articles?past_hours=" + past_hours}
+        else{api_url = url + "latest-articles?past_hours=" + past_hours}
         return axios.get(
-            proxyurl + url + "latest-articles?past_hours=" + past_hours,
+            api_url,
             {
                 headers: {
                     "x-rapidapi-host": x_rapidapi_host,
@@ -29,8 +33,11 @@ export default {
     },
 
     getTopArticles(){
+        let api_url = "";
+        if(useProxy){ api_url = proxyurl + url + "top-articles"}
+        else{api_url = proxyurl + url + "top-articles"}
         return axios.get(
-            proxyurl + url + "top-articles",
+            api_url,
             {
                 headers: {
                     "x-rapidapi-host": x_rapidapi_host,
@@ -51,8 +58,11 @@ export default {
     },
 
     searchArticles(query_str){
+        let api_url = "";
+        if(useProxy){ api_url = proxyurl + url + "articles"}
+        else{api_url = proxyurl + url + "articles"}
         return axios.get(
-            proxyurl + url + "articles",
+            api_url,
             {
                 headers: {
                     "x-rapidapi-host": x_rapidapi_host,
