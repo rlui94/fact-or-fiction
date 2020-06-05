@@ -30,7 +30,7 @@
 import HoaxyAPI from '@/api/Hoaxy'
 import ImageThumbnail from '@/components/ImageThumbnail'
 
-const maxArticles = 6;
+const maxArticles = 3;
 
 export default {
   name: 'top-articles',
