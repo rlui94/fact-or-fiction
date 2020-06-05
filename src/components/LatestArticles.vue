@@ -47,7 +47,7 @@ export default {
   },
 
   created(){
-    HoaxyAPI.getLatestArticles(2)
+    HoaxyAPI.getLatestArticles(this.hours)
       .then(result =>{
         this.articles = result.slice(0, maxArticles);
       });
